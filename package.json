@@ -4,8 +4,8 @@
   "description": "my personal website!",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./sitebackend/frontend/src/index.js  --output ./sitebackend/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./sitebackend/frontend/src/index.js  --output ./sitebackend/frontend/static/frontend/main.js"
+    "dev": "webpack --mode development ./sitebackend/frontend/src/index.js --output-path ./sitebackend/frontend/static/frontend/",
+    "build": "webpack --mode production ./sitebackend/frontend/src/index.js --output-path ./sitebackend/frontend/static/frontend/"
   },
   "repository": {
     "type": "git",
