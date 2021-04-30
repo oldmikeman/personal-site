@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from './types';
+import { createMessage } from '../actions/messages';
+import { GET_LEADS, DELETE_LEAD, ADD_LEAD, GET_ERRORS, CREATE_MESSAGE } from './types';
 
 /** REMINDER NOTES ABOUT CURRIED FUNCTIONS
  * Here, getLeads is being set equal to a function that has no input.
@@ -32,10 +33,11 @@ export const getLeads = () => dispatch => {
 export const deleteLead = (id) => dispatch => {
   axios.delete(`/api/leads/${id}/`)
     .then(res => {
+      dispatch(createMessage({ deleteLead: "Lead Deleted!" }));
       dispatch({
         type: DELETE_LEAD,
         payload: id
-      })
+      });
     }).catch(err => console.log(err));
 }
 
@@ -43,9 +45,19 @@ export const deleteLead = (id) => dispatch => {
 export const addLead = (lead) => dispatch => {
   axios.post('/api/leads/', lead)
     .then(res => {
+      dispatch(createMessage({ addLead: "Lead Added!" }));
       dispatch({
         type: ADD_LEAD,
         payload: res.data
       })
-    }).catch(err => console.log(err));
+    }).catch(err => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status
+      }
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
+      })
+    });
 }

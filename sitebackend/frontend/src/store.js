@@ -3,6 +3,8 @@
  * Each component of the application is now a child of the store in the app component tree.
  * Makes sharing information between components of large applications very easy.
  * Data that is typically stored in a component's state is now a prop that is passed in from redux.
+ * 
+ * Importing rootReducer from ./reducers automatically looks for index.js inside of ./reducers
 */
 
 import { applyMiddleware, createStore } from 'redux';

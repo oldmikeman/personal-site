@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import leads from './leads';
+import errors from './errors';
+import messages from './messages';
 
-
-// using 'leads' in this object is equivalent to 'leadReducer: leads'
+/* ROOT REDUCER */
 export default combineReducers({
-  leads
+  // 'leads' in this object is equivalent to 'leadReducer: leads'
+  leads,
+  errors,
+  messages
 });

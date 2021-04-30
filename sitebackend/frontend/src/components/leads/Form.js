@@ -22,9 +22,13 @@ export class Form extends Component {
   onSubmit = e => {
     e.preventDefault();
     const { name, email, message } = this.state;
-    // Equivalent to {name:name, email:email, message:message}
     const lead = { name, email, message };
     this.props.addLead(lead);
+    this.setState({
+      name: '',
+      email: '',
+      message: ''
+    })
   }
 
   render() {
