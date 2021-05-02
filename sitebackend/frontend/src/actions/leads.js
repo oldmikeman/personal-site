@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { createMessage } from '../actions/messages';
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD, GET_ERRORS, CREATE_MESSAGE } from './types';
+import { createMessage, returnErrors } from '../actions/messages';
+import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from './types';
 
 /** REMINDER NOTES ABOUT CURRIED FUNCTIONS
  * Here, getLeads is being set equal to a function that has no input.
@@ -26,7 +26,7 @@ export const getLeads = () => dispatch => {
         type: GET_LEADS,
         payload: res.data
       })
-    }).catch(err => console.log(err));
+    }).catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 }
 
 // DELETE LEAD
@@ -50,14 +50,5 @@ export const addLead = (lead) => dispatch => {
         type: ADD_LEAD,
         payload: res.data
       })
-    }).catch(err => {
-      const errors = {
-        msg: err.response.data,
-        status: err.response.status
-      }
-      dispatch({
-        type: GET_ERRORS,
-        payload: errors
-      })
-    });
+    }).catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 }

@@ -39,8 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leads',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'knox',
+    'accounts'
 ]
+
+# DEFAULT_AUTHENTICATION_CLASSES is a tuple, and if there is only one piece of data, this gets read as a string
+# this will cause the server to throw a 500 error. in order to prevent the stringification, we put a comma after
+# 'knox.auth.TokenAuthentication'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
