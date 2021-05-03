@@ -13,14 +13,14 @@ export default function (state = initalState, action) {
       return {
         ...state,
         isLoading: true
-      }
+      };
     case USER_LOADED:
       return {
         ...state,
         isAuthenticated: true,
         isLoading: false,
         user: action.payload
-      }
+      };
     case AUTH_ERROR:
       localStorage.removeItem('token');
       return {
@@ -29,9 +29,8 @@ export default function (state = initalState, action) {
         user: null,
         isAuthenticated: false,
         isLoading: false
-      }
+      };
     default:
-      console.log("default case in auth reducer");
       return state;
   }
 }

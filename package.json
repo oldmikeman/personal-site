@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/oldmikeman/personal-site#readme",
   "devDependencies": {
-    "@babel/core": "^7.13.16",
-    "@babel/preset-env": "^7.13.15",
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "webpack": "^5.35.0",
+    "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {

@@ -24,9 +24,7 @@ const alertOptions = {
 class App extends Component {
 
     componentDidMount() {
-        console.log("app.js componentDidMount() 1");
-        store.dispatch(loadUser);
-        console.log("app.js componentDidMount() 2");
+        store.dispatch(loadUser());
     }
 
     render() {
