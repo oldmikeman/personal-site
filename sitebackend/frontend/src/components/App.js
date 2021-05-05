@@ -14,7 +14,7 @@ import Register from './accounts/Register';
 import PrivateRoute from './common/PrivateRoute';
 
 import { loadUser } from '../actions/auth';
-import Homepage from './leads/HomePage';
+import Homepage from './layout/HomePage';
 
 // Alert Options
 const alertOptions = {
