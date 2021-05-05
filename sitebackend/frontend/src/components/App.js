@@ -14,6 +14,7 @@ import Register from './accounts/Register';
 import PrivateRoute from './common/PrivateRoute';
 
 import { loadUser } from '../actions/auth';
+import Homepage from './leads/HomePage';
 
 // Alert Options
 const alertOptions = {
@@ -37,7 +38,8 @@ class App extends Component {
                             <Alerts />
                             <div className="container">
                                 <Switch>
-                                    <PrivateRoute exact path="/" component={Dashboard} />
+                                    <Route exact path="/" component={Homepage} />
+                                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
                                 </Switch>
