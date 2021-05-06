@@ -1,10 +1,9 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 /**Two important things are happening here: 
- * 1. we created a higher-order component 
+ * 1. we created a higher-order component, but a Route doesn't render anything to the screen, it tells something else to render
  * 2. we "overrode" the Route component using render props. 
  * 
  * **the prop 'component' is part of Route 

@@ -20,8 +20,11 @@ export class Header extends Component {
                 <span className="navbar-text mr-5">
                     <strong>{user ? `Welcome, ${user.username}` : ''}</strong>
                 </span>
+                <li className="nav-item mr-3">
+                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                </li>
                 <li className="nav-item">
-                    <button onClick={this.props.logout} className="nav-link btn btn-info btn-sm text-light">Logout</button>
+                    <button onClick={this.props.logout} className="nav-link btn btn-dark btn-sm text-light">Logout</button>
                 </li>
             </ul>
         );
@@ -44,7 +47,7 @@ export class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">Lead Manager</a>
+                        <a className="navbar-brand" href="#">Home</a>
                     </div>
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
